@@ -1,0 +1,114 @@
+% Vorlage fuer latex-beamer-Praesentationen unter Verwendung des Corporate 
+% Designs der Uni.
+%
+% Basiert auf der alten Vorlage von Carsten Bockelmann 
+% (bockelmann@ant.uni-bremen.de), angepasst an das Corporate Design von 
+% Henning Paul (paul@ant.uni-bremen.de) unter Verwendung der Vorlage von
+% Dirk Lorenz und Kristan Bredies aus dem Zentrum fuer Technomathematik
+% ({dlorenz,kbredies}@math.uni-bremen.de)
+
+\documentclass[10pt]{beamer}
+
+\mode<presentation>
+{
+  % Das ANT-Theme benutzen
+  % Titel in Kopfzeile, kleine Navigationselemente, Seitennummer anzeigen,
+  % Autor dauerhaft eingeblendet lassen
+  % \usetheme[headlinetitle,navline=small,footlinenumber,footlineauthor]{ANT}
+
+  % Autor nicht dauerhaft einblenden
+   \usetheme[headlinetitle,navline=small,footlinenumber]{Bremen}
+  % \usetheme[footlinesection,footlinenumber,navline=small]{ZeTeM}
+
+  %
+  % Die vollstaendige Dokumentation zu unserem Theme findet sich in der Datei 
+  % beamerZeTeMdoc.pdf, da es auf dem Theme der Technomathematiker aus dem 
+  % ZeTeM basiert.
+  %
+  % Es koennen bis zu zwei zusaetzliche Logos (zu unserer Ameise oben links
+  % und dem Uni-Logo unten links) hinzugefuegt werden, diese erscheinen dann
+  % rechts neben dem Uni-Logo.
+  % \partnerlogo{
+	% \includegraphics[height=2.6\baselineskip]{TZI.pdf}}
+  % \secondarypartnerlogo{
+	% \includegraphics[height=2.6\baselineskip]{DFG_zweizeilig_blau.pdf}}
+
+  % Dieses sind Standard-latex-beamer-Optionen:
+  %
+  % Der mathematische Schriftsatz ist mit Serifen
+  \usefonttheme[onlymath]{serif}
+  % Noch nicht aufgedeckte Punkte erscheinen ausgegraut
+  \setbeamercovered{transparent}
+  % Bild-/Tabellenueberschriften sind sehr klein
+  \setbeamerfont{caption}{size=\tiny}
+
+}
+
+
+%\usepackage[german]{babel}
+% oder was auch immer
+
+\usepackage[utf8]{inputenc}
+% oder was auch immer
+
+
+\usepackage{hyperref}
+\hypersetup{
+    pdftitle={},
+    pdfsubject={},
+    pdfauthor={Max Mustermann},
+    pdfkeywords={},
+    % pdfpagemode=None, %deprecated
+    plainpages=false,
+    pdfstartview=Fit,
+    breaklinks=true,
+    colorlinks=false,
+    pdfhighlight=/N,
+    % define colors, even if not used
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    citebordercolor=1 1 1,
+    filebordercolor=1 1 1,
+    linkbordercolor=1 1 1,
+    menubordercolor=1 1 1,
+    % pagebordercolor=1 1 1, %deprecated
+    urlbordercolor=1 1 1,
+    % pdfborder=1 1 1 %erzeugt fehler im footer
+  }
+
+\title{Property Oriented Testing}
+\author{Sadik Özoguz}
+\institute{Universit{\"a}t Bremen}
+\date[02.02.2018]{2. Februar 2018}
+
+\subject{Presentation}
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Überblick}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% Hier beginnt der redaktionelle Inhalt
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{First Section}
+
+\subsection[Subsection 1]{First Subsection in First Section}
+
+\begin{frame}
+  \frametitle{Bla}
+  This is some random text.
+\end{frame}
+
+\end{document}
+
+

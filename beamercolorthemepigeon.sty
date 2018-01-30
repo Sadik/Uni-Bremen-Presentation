@@ -1,0 +1,179 @@
+% Written by Kristan Bredies and Dirk Lorenz, 2005
+% {kbredies,dlorenz}@math.uni-bremen.de
+
+\mode<presentation>
+
+\DeclareOptionBeamer{bright}{
+  \definecolor{coolgray 1}{rgb}{0.90625,0.8828125,0.8359375}
+  \definecolor{primary}{rgb}{0.95,0.94,0.92}
+}
+\DeclareOptionBeamer{dim}{
+  \definecolor{coolgray 1}{rgb}{0.82421875,0.8046875,0.765625}
+  \definecolor{primary}{rgb}{0.90625,0.8828125,0.8359375}
+}
+\DeclareOptionBeamer{dark}{
+  \definecolor{coolgray 1}{rgb}{0.7265625,0.71484375,0.68359375}
+  \definecolor{primary}{rgb}{0.82421875,0.8046875,0.765625}
+}
+\DeclareOptionBeamer{example}{
+  \setbeamercolor{example text}{fg=green!50!black}
+  \definecolor{coolgray 1}{rgb}{0.82421875,0.8046875,0.765625}
+  \definecolor{primary}{rgb}{0.90625,0.8828125,0.8359375}
+}
+\DeclareOptionBeamer{noexample}{
+  \setbeamercolor{example text}{fg=black}
+}
+\ExecuteOptionsBeamer{dim}
+\ExecuteOptionsBeamer{noexample}
+\ProcessOptionsBeamer
+
+\definecolor{hsk 15}{hsb}{.978,1,.89}
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{alerted text}{fg=hsk 15}
+
+\setbeamercolor{background canvas}{parent=normal text}
+\setbeamercolor{background}{parent=background canvas}
+
+\setbeamercolor{palette primary}{bg=primary!50!white, fg=black}
+\setbeamercolor{palette secondary}{bg=primary, fg=black}
+\setbeamercolor{palette tertiary}{bg=coolgray 1, fg=black}
+\setbeamercolor{palette quaternary}{bg=coolgray 1!85!black, fg=black}
+
+\setbeamercolor{palette sidebar primary}{use=palette primary}
+\setbeamercolor{palette sidebar secondary}{use=palette secondary}
+\setbeamercolor{palette sidebar tertiary}{use=palette tertiary}
+\setbeamercolor{palette sidebar quaternary}{use=palette quaternary}
+
+\setbeamercolor{math text}{}
+\setbeamercolor{math text inlined}{parent=math text}
+\setbeamercolor{math text displayed}{parent=math text}
+
+\setbeamercolor{normal text in math text}{}
+
+\setbeamercolor{local structure}{parent=structure}
+
+\setbeamercolor{titlelike}{parent=normal text}
+
+\setbeamercolor{title}{parent=titlelike}
+\setbeamercolor{title in head/foot}{parent=palette quaternary}
+\setbeamercolor{title in sidebar}{parent=palette sidebar quaternary}
+
+\setbeamercolor{subtitle}{parent=title}
+
+\setbeamercolor{author}{}
+\setbeamercolor{author in head/foot}{parent=palette primary}
+\setbeamercolor{author in sidebar}{use=palette sidebar tertiary,fg=palette sidebar tertiary.fg}
+
+\setbeamercolor{institute}{}
+\setbeamercolor{institute in head/foot}{parent=palette tertiary}
+\setbeamercolor{institute in sidebar}{use=palette sidebar tertiary,fg=palette sidebar tertiary.fg}
+
+\setbeamercolor{date}{}
+\setbeamercolor{date in head/foot}{parent=palette secondary}
+\setbeamercolor{date in sidebar}{use=palette sidebar tertiary,fg=palette sidebar tertiary.fg}
+
+\setbeamercolor{titlegraphic}{}
+
+\setbeamercolor{part name}{}
+\setbeamercolor{part title}{parent=titlelike}
+
+\setbeamercolor{section in toc}{parent=structure}
+\setbeamercolor{section in head/foot}{parent=palette tertiary}
+\setbeamercolor{section in sidebar}{parent=palette sidebar secondary}
+\setbeamercolor{section in sidebar shaded}{use=section in sidebar,fg=section in sidebar.fg!40!bg}
+\setbeamercolor{section number projected}{parent=item projected}
+
+\setbeamercolor{subsection in toc}{parent=structure}
+\setbeamercolor{subsection in head/foot}{parent=palette secondary}
+\setbeamercolor{subsection in sidebar}{parent=palette sidebar primary}
+\setbeamercolor{subsection in sidebar shaded}{use=subsection in sidebar,fg=subsection in sidebar.fg!40!bg}
+\setbeamercolor{subsection number projected}{parent={subitem projected}}
+
+\setbeamercolor{headline}{}
+\setbeamercolor{footline}{}
+
+\setbeamercolor{sidebar}{}
+\setbeamercolor{sidebar left}{parent=sidebar}
+\setbeamercolor{sidebar right}{parent=sidebar}
+
+\setbeamercolor{logo}{parent=palette secondary}
+
+\setbeamercolor{frametitle}{parent=titlelike}
+\setbeamercolor{framesubtitle}{parent=frametitle}
+
+\setbeamercolor{frametitle right}{parent=frametitle}
+
+\setbeamercolor{caption}{}
+\setbeamercolor{caption name}{parent=structure}
+
+\setbeamercolor{button}{use=local structure,bg=local structure.fg!50!bg,fg=white}
+\setbeamercolor{button border}{use=button,fg=button.bg}
+\setbeamercolor{navigation symbols}{use=palette quaternary,fg=palette
+  quaternary.fg}
+\setbeamercolor{navigation symbols}{fg=black,bg=white}
+\setbeamercolor{navigation symbols dimmed}{use=palette
+  tertiary,fg=palette tertiary.bg!50!fg}
+\setbeamercolor{mini frame}{parent=section in head/foot}
+
+\setbeamercolor{block body}{parent=palette secondary}
+\setbeamercolor{block body alerted}{parent=block body}
+\setbeamercolor{block body example}{parent=block body}
+\setbeamercolor{block title}{parent=palette tertiary,
+			     fg=structure.fg}
+\setbeamercolor{block title alerted}{use=block title,fg=alerted text.fg,bg=block title.bg}
+\setbeamercolor{block title example}{use=block title,fg=example text.fg,bg=block title.bg}
+
+\setbeamercolor{item}{parent=local structure}
+\setbeamercolor{subitem}{parent=item}
+\setbeamercolor{subsubitem}{parent=subitem}
+
+\setbeamercolor{item projected}{fg=black, bg=coolgray 1}
+\setbeamercolor{subitem projected}{parent=item projected}
+\setbeamercolor{subsubitem projected}{parent=subitem projected}
+
+\setbeamercolor{enumerate item}{parent=item}
+\setbeamercolor{enumerate subitem}{parent=subitem}
+\setbeamercolor{enumerate subsubitem}{parent=subsubitem}
+
+\setbeamercolor{itemize item}{parent=item}
+\setbeamercolor{itemize subitem}{parent=subitem}
+\setbeamercolor{itemize subsubitem}{parent=subsubitem}
+
+\setbeamercolor{itemize/enumerate body}{}
+\setbeamercolor{itemize/enumerate subbody}{}
+\setbeamercolor{itemize/enumerate subsubbody}{}
+
+\setbeamercolor{description item}{parent=item}
+
+\setbeamercolor{bibliography item}{parent=item}
+
+\setbeamercolor{bibliography entry author}{use=structure,fg=structure.fg}
+\setbeamercolor{bibliography entry title}{use=normal text,fg=normal text.fg}
+\setbeamercolor{bibliography entry location}{use=structure,fg=structure.fg!65!bg}
+\setbeamercolor{bibliography entry note}{use=structure,fg=structure.fg!65!bg}
+
+\setbeamercolor{separation line}{}
+
+\setbeamercolor{upper separation line head}{parent=separation line}
+\setbeamercolor{middle separation line head}{parent=separation line}
+\setbeamercolor{lower separation line head}{parent=separation line}
+
+\setbeamercolor{upper separation line foot}{parent=separation line}
+\setbeamercolor{middle separation line foot}{parent=separation line}
+\setbeamercolor{lower separation line foot}{parent=separation line}
+
+\setbeamercolor{abstract}{}
+\setbeamercolor{abstract title}{parent=structure}
+
+\setbeamercolor{verse}{}
+
+\setbeamercolor{quotation}{}
+\setbeamercolor{quote}{parent=quotation}
+
+\setbeamercolor{page number in head/foot}{fg=fg!50!bg}
+
+\setbeamercolor{qed symbol}{parent=structure}
+
+\mode
+<all>

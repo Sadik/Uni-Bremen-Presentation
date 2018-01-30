@@ -1,0 +1,32 @@
+% Written by Kristan Bredies and Dirk Lorenz, 2005
+% {kbredies,dlorenz}@math.uni-bremen.de
+
+% Optionen für das outer theme
+\DeclareOptionBeamer{noheadline}{\PassOptionsToPackage{noheadline}{beamerouterthemebremen}}
+\DeclareOptionBeamer{headlinetitle}{\PassOptionsToPackage{headlinetitle}{beamerouterthemebremen}}
+\DeclareOptionBeamer{nofootline}{\PassOptionsToPackage{nofootline}{beamerouterthemebremen}}
+\DeclareOptionBeamer{footlineauthor}{\PassOptionsToPackage{footlineauthor}{beamerouterthemebremen}}
+\DeclareOptionBeamer{footlinesection}{\PassOptionsToPackage{footlinesection}{beamerouterthemebremen}}
+\DeclareOptionBeamer{footlinenumber}{\PassOptionsToPackage{footlinenumber}{beamerouterthemebremen}}
+\DeclareOptionBeamer{navline}{\PassOptionsToPackage{navline=#1}{beamerouterthemebremen}}
+% Optionen für das color theme
+\DeclareOptionBeamer{bright}{\PassOptionsToPackage{bright}{beamercolorthemepigeon}}
+\DeclareOptionBeamer{dim}{\PassOptionsToPackage{dim}{beamercolorthemepigeon}}
+\DeclareOptionBeamer{dark}{\PassOptionsToPackage{dark}{beamercolorthemepigeon}}
+\DeclareOptionBeamer{example}{\PassOptionsToPackage{example}{beamercolorthemepigeon}}
+\ProcessOptionsBeamer
+
+\usecolortheme{pigeon}
+\useinnertheme{rectangles}
+\useoutertheme{bremen}
+
+% Ergänzungen zum font theme
+\setbeamerfont{title}{series=\bfseries}
+\setbeamerfont{titlelike}{parent=title}
+\setbeamerfont{frametitle}{parent=title}
+\setbeamerfont{framesubtitle}{parent=title}
+\setbeamerfont{frametitle continuation}{parent=title}
+
+\mode<presentation>
+
+\mode<all>
