@@ -18,7 +18,6 @@
 
   % Autor nicht dauerhaft einblenden
    \usetheme[headlinetitle,navline=small,footlinenumber]{Bremen}
-  % \usetheme[footlinesection,footlinenumber,navline=small]{ZeTeM}
 
   %
   % Die vollstaendige Dokumentation zu unserem Theme findet sich in der Datei 
@@ -82,10 +81,13 @@
 \institute{Universit{\"a}t Bremen}
 \date[02.02.2018]{2. Februar 2018}
 
+\newcommand{\W}{\mathcal{W}}
+\newcommand{\F}{\mathcal{F}}
+
 \subject{Presentation}
 \AtBeginSection[]
 {
-  \begin{frame}<beamer>
+  \begin{frame}
     \frametitle{Überblick}
     \tableofcontents[currentsection]
   \end{frame}
@@ -100,13 +102,55 @@
   \titlepage
 \end{frame}
 
-\section{First Section}
+\section*{Überblick}
+\begin{frame}<beamer>
+  \frametitle{Überblick}
+  \tableofcontents
+\end{frame}
 
-\subsection[Subsection 1]{First Subsection in First Section}
+\section{Einleitung / Motivation}
 
 \begin{frame}
   \frametitle{Bla}
   This is some random text.
+\end{frame}
+
+\section{Finite State Machine}
+\subsection{Definition}
+\subsection{Eigenschaften}
+
+\section{Conformance Testing}
+\subsection{$\W$-Methode}
+\begin{frame}
+  \frametitle{$\W$-Methode}
+  \begin{definition}[$\W$-Methode]
+  Gegeben ist eine vollständige, minimale DFSM $M$ mit $n$ Zuständen, dann definiert die $\W$-Methode eine vollständige Testsuite T für $M$ mit
+  $$T_\W(M) = V.\bigcup\limits_{i=0}^{m-n+1}\Sigma_I^i.W$$
+  bzgl. der Fault Model $\F(M, \sim, \texttt{Dom})$.
+  \end{definition}
+  \pause
+  \begin{itemize}
+    \item<2-> $V$ : State Cover
+    \item<3-> $W$ : Characterization Set
+    \item<4-> $m \in \mathbb{N}$ mit $m \geq n$ (max. Zustände in der Implementierung)
+    \item<5-> $\texttt{Dom} = DFSM_C(\Sigma_I, \Sigma_O, m)$ 
+  \end{itemize}
+
+\end{frame}
+
+\subsection{$H$-Methode}
+\begin{frame}
+  \frametitle{$H$-Methode}
+
+\end{frame}
+
+\subsection[Subsection 1]{First Subsection in First Section}
+
+\begin{frame}
+  \frametitle{What Are Prime Numbers?}
+  \begin{definition}
+  A \alert{prime number} is a number that has exactly two divisors.
+  \end{definition}
 \end{frame}
 
 \end{document}
