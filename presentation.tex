@@ -111,13 +111,66 @@
 \section{Einleitung / Motivation}
 
 \begin{frame}
-  \frametitle{Bla}
-  This is some random text.
+  \frametitle{Motivation}
+  \begin{itemize}
+    \item MBT: Modell $\rightarrow$ (vollständige) Test Suite
+    \item Je größer die Test Suite, desto teurer das Testen
+    \item<2-> Stattdessen: Nachweis einer Eigenschaft
+    \item<3-> Ziel: Kleinere Testsuite, aber vollständig bezüglich dieser Eigenschaft
+  \end{itemize}
 \end{frame}
 
-\section{Finite State Machine}
+\section{DFSM}
 \subsection{Definition}
+\begin{frame}
+  \frametitle{DFSM}
+
+  \begin{definition}[Deterministische Finite State Machine]
+    Eine deterministische Finite State Machine (DFSM) ist ein 5-Tupel $$M=(Q,q_0,\Sigma_I,\Sigma_O,h)$$
+    $Q$: Zustandsraum\\
+    $\Sigma_I$, $\Sigma_O$ : Ein-, Ausgabealphabet\\
+    $h \subseteq Q \times \Sigma_I \times \Sigma_O \times Q$ : Übergangsrelation 
+  \end{definition}
+  Deterministisch: $(q,x,y_1,q_1),(q,x,y_2,q_2) \in h: (y_1 = y_2 \wedge q_1 = q_2)$
+\end{frame}
+
 \subsection{Eigenschaften}
+\begin{frame}
+\frametitle{FSM Eigenschaften}
+\begin{itemize}
+  \item<1-> Vollständig (\emph{input complete})$$\forall q\in Q, x\in \Sigma_I : \exists y \in \Sigma_O, q'\in Q : (q,x,y,q')\in h$$
+  \item<2-> Die Sprache eines Zustandes $q \in Q$ ist eine Menge von Eingabe-/Aus\-gabefolgen $$L(q)= \{\overline{x}/\overline{y}\ | \exists q' \in Q : (q,\overline{x}, \overline{y}, q') \in h \}$$
+  \item<3-> I/O-äquivalent: $L(q_1) = L(q_2)$ bzw. $L(M_1) = L(M_2)$ $$q_1 \sim q_2, M_1 \sim M_2$$
+  \item<4-> Minimal: Wenn keine zwei Zustände einer DFSM zueinander äquivalent sind, ist die DFSM \emph{minimal}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Beispiel: Garage Door Controller}
+
+\includegraphics[width=\textwidth]{images/gdc}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Beispiel: Garage Door Controller}
+\begin{columns}[T] % align columns
+\begin{column}{.48\textwidth}
+
+\includegraphics[width=\textwidth]{images/gdc_min}
+\end{column}%
+\hfill%
+\begin{column}{.48\textwidth}
+\begin{itemize}
+  \item e1: Fernbedienung gedrückt
+  \item e2: Sensor "Tür ist unten"
+  \item e3: Sensor "Tür ist oben"
+  \item e4: Sensor "Lichtschrank aktiviert"
+\end{itemize}
+\end{column}%
+\end{columns}
+\end{frame}
 
 \section{Conformance Testing}
 \subsection{$\W$-Methode}
