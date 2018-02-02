@@ -51,12 +51,15 @@
 \usepackage[utf8]{inputenc}
 % oder was auch immer
 
+\usepackage{color,soul}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\setulcolor{darkblue}
 
 \usepackage{hyperref}
 \hypersetup{
     pdftitle={},
     pdfsubject={},
-    pdfauthor={Max Mustermann},
+    pdfauthor={Sadik Özoguz},
     pdfkeywords={},
     % pdfpagemode=None, %deprecated
     plainpages=false,
@@ -77,7 +80,7 @@
     % pdfborder=1 1 1 %erzeugt fehler im footer
   }
 
-\title{Property Oriented Testing}
+\title{Eigenschaftsorientiertes Testen sicherheitskritischer Systeme}
 \author{Sadik Özoguz}
 \institute{Universit{\"a}t Bremen}
 \date[02.02.2018]{2. Februar 2018}
@@ -204,12 +207,13 @@
 
 \begin{frame}
   \frametitle{$H$-Methode}
+  DFSM sei vollständig und minimal
   \begin{itemize}
     \item $A=V\times V$
   	\item $B=V\times (V.\bigcup\limits_{i=1}^{m-n+1}.\Sigma_I^i)$
   	\item $C=\{(\alpha,\beta)|\alpha,\beta\in V.\bigcup\limits_{i=1}^{m-n+1}.\Sigma_I^i, \alpha \in \text{Pref}(\beta)\}$
   \end{itemize}
-  Für alle Paare $(\alpha, \beta) \in A\cup B \cup C$, falls $\delta(\alpha) \not \sim \delta(\beta)$, dann enthält die Test Suite $\alpha.\omega,\beta.\omega$. $\omega$ ist die \emph{distinguishing trace} für $\delta(\alpha)$ und $\delta(\beta)$.
+  Für alle Paare $(\alpha, \beta) \in A\cup B \cup C$, falls $\delta(q_0,\alpha) \not \sim \delta(q_0,\beta)$, dann enthält die Test Suite $\alpha.\omega,\beta.\omega$. $\omega$ ist die \emph{distinguishing trace} für $\delta(\alpha)$ und $\delta(\beta)$.
 \end{frame}
 
 \begin{frame}
@@ -231,37 +235,61 @@
 
 \begin{column}{.70\textwidth}
 \centering
-\includegraphics[width=0.4\textwidth]{images/fsm-example01_orig}
-\only<1-2>{\includegraphics[height=0.5\textheight]{images/HTree01}}
-\only<3>{\includegraphics[height=0.5\textheight]{images/HTree02_c}}
-\only<4>{\includegraphics[height=0.5\textheight]{images/HTree02}}
-\only<5>{\includegraphics[height=0.5\textheight]{images/HTree03_c}}
-\only<6>{\includegraphics[height=0.5\textheight]{images/HTree03}}
-\only<7>{\includegraphics[height=0.5\textheight]{images/HTree04_c}}
-\only<8>{\includegraphics[height=0.5\textheight]{images/HTree04}}
-\only<9>{\includegraphics[height=0.5\textheight]{images/HTree05_c}}
-\only<10>{\includegraphics[height=0.5\textheight]{images/HTree05}}
-\only<11>{\includegraphics[height=0.5\textheight]{images/HTree06_c}}
-\only<12>{\includegraphics[height=0.5\textheight]{images/HTree06}}
-\only<13>{\includegraphics[height=0.5\textheight]{images/HTree07_c}}
-\only<14>{\includegraphics[height=0.5\textheight]{images/HTree07}}
+\includegraphics[width=0.5\textwidth]{images/fsm-example01_orig}%
+\only<1-2>{\includegraphics[width=0.5\textwidth]{images/HTree01}}%
+\only<3>{\includegraphics[width=0.5\textwidth]{images/HTree02_c}}%
+\only<4>{\includegraphics[width=0.5\textwidth]{images/HTree02}}%
+\only<5>{\includegraphics[height=0.6\textheight]{images/HTree03_c}}%
+\only<6>{\includegraphics[height=0.6\textheight]{images/HTree03}}%
+\only<7>{\includegraphics[height=0.6\textheight]{images/HTree04_c}}%
+\only<8>{\includegraphics[height=0.6\textheight]{images/HTree04}}%
+\only<9>{\includegraphics[height=0.6\textheight]{images/HTree05_c}}%
+\only<10>{\includegraphics[height=0.6\textheight]{images/HTree05}}%
+\only<11>{\includegraphics[height=0.6\textheight]{images/HTree06_c}}%
+\only<12>{\includegraphics[height=0.6\textheight]{images/HTree06}}%
+\only<13>{\includegraphics[height=0.6\textheight]{images/HTree07_c}}%
+\only<14>{\includegraphics[height=0.6\textheight]{images/HTree07}}%
 \end{column}%
 
 \end{columns}
 \end{frame}
 
 \begin{frame}
+\frametitle{$H$-Methode - Vergleich}
+\begin{columns}[T] % align columns
+
+\begin{column}{.7\textwidth}
+\begin{itemize}[<+->]
+    \item $\W$-Methode: 8 Testfälle, 24 Testschritte
+    \item $\W_p$-Methode: 7 Testfälle, 21 Testschritte
+    \item $H$-Methode: 5 Testfälle, 15 Testschritte
+\end{itemize}
+\end{column}%
+
+\begin{column}{.50\textwidth}
+\centering
+\includegraphics[width=\textwidth]{images/fsm-example01_orig}%
+\end{column}%
+
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{$H$-Methode - Optimierung}
+Wahl von $\omega$ vom aktuellen Testbaum abhängig machen.
+
+\begin{itemize}
+      \item<2-> Ideal: Für $(\alpha, \beta$) finde $\omega$, sodass $\alpha.\omega$ und $\beta.\omega$ im Testbaum
+      \item<3-> Sonst: Erweitere bestehenden Test
+      \item<4-> Wenn nicht anders möglich: Neuer Testfall 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{$H$-Methode - Optimierung}
-    Wahl von $\omega$ vom aktuellen Testbaum abhängig machen.
-  
+
   \begin{columns}[T] % align columns
     \begin{column}{.3\textwidth}
-        \pause
-	    \begin{itemize}
-		  \item Ideal: Finde $\omega$ im Testbaum
-		  \item Sonst: Erweitere bestehenden Test
-		  \item Wenn nicht anders möglich: Neuer Testfall 
-		\end{itemize}
 	    \begin{itemize}
 		  \item Betrachte $(c.a,d)$
 		  \item mögliches $\omega: e$
@@ -269,7 +297,7 @@
     \end{column}%
 
     \begin{column}{.70\textwidth}
-        \only<2->{\includegraphics[width=\textwidth]{images/FSM_opt}}
+        \only<1->{\includegraphics[width=\textwidth]{images/FSM_opt}}
     \end{column}%
   \end{columns}
 \end{frame}
@@ -290,8 +318,8 @@
 \begin{column}{.70\textwidth}
 Zu diesem Zeitpunkt sieht der Testbaum so aus:
 \only<1>{\includegraphics[height=0.6\textheight]{images/HTree_opt}}
-\only<2>{\includegraphics[height=0.6\textheight]{images/HTree_opt2}}
-\only<3->{\includegraphics[height=0.7\textheight]{images/HTree_opt3}}
+\only<2-3>{\includegraphics[height=0.6\textheight]{images/HTree_opt2}}
+\only<4->{\includegraphics[height=0.7\textheight]{images/HTree_opt3}}
 \end{column}%
 
 \end{columns}
@@ -322,8 +350,8 @@ Zu diesem Zeitpunkt sieht der Testbaum so aus:
 \end{frame}
 
 \begin{frame}
-\frametitle{Safety Completeness}
-Eine Test Suite wird \emph{safety complete} genannt, gdw. für jede IUT $M'$ der Fehlerdomain gilt:
+\frametitle{Safety-Complete Test Suite}
+Eine Test Suite $TS$ wird \emph{safety complete} genannt, gdw. für jede IUT $M'$ der Fehlerdomain gilt:
 \begin{itemize}
   \item<1-> Soundness: $M$ und $M'$ sind I/O-äquivalent zueinander $\Rightarrow$ $M'$ besteht die Teset Suite ($M'~ \underline{pass}~ TS$)
   \item<2-> safety-Exhaustiveness: Für alle $M'$ aus der Fehlerdomain gilt: $M' \not \sim_s M \Rightarrow M'~ \underline{fail}~ TS$
@@ -349,6 +377,8 @@ Eine Test Suite wird \emph{safety complete} genannt, gdw. für jede IUT $M'$ der
 \end{columns}
 \end{frame}
 
+
+
 \begin{frame}
 \frametitle{Beispiel}
 \begin{columns}[T] % align columns
@@ -360,25 +390,129 @@ Eine Test Suite wird \emph{safety complete} genannt, gdw. für jede IUT $M'$ der
 
 \begin{column}{.50\textwidth}
 \textbf{Safety Abstraktion von M}
-\includegraphics[width=\textwidth]{images/fsm-example01_abs}
+\only<1>{\includegraphics[width=\textwidth]{images/fsm-example01_abs}}%
+\only<2->{\includegraphics[width=0.8\textwidth]{images/fsm-example01_abs_min}}%
 \end{column}%
 \end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{Beispiel}
+\frametitle{Safety-H Methode}
+$(\alpha, \beta)$-Liste stammt aus den gleichen Mengen wie bei der $H$-Methode
+\begin{itemize}
+    \item $A=V\times V$
+    \item $B=V\times (V.\bigcup\limits_{i=1}^{m-n+1}.\Sigma_I^i)$
+    \item $C=\{(\alpha,\beta)|\alpha,\beta\in V.\bigcup\limits_{i=1}^{m-n+1}.\Sigma_I^i, \alpha \in \text{Pref}(\beta)\}$
+  \end{itemize}
+
 \begin{columns}[T] % align columns
-
 \begin{column}{.50\textwidth}
-\textbf{M}
-\includegraphics[width=\textwidth]{images/fsm-example01}
-\end{column}%
+\pause
+\begin{itemize}
+  \item<2-> $(\alpha, \beta) \in A, \delta(q_0,\alpha) \not \sim \delta(q_0, \beta)$
+  \item<3-> $(\alpha, \beta) \in B, \delta(q_0,\alpha) \not \sim_s \delta(q_0, \beta)$
+  \item<3-> $(\alpha, \beta) \in C, \delta(q_0,\alpha) \not \sim_s \delta(q_0, \beta)$
+\end{itemize}
+  \end{column}%
+  \begin{column}{.60\textwidth}
 
-\begin{column}{0.5\textwidth}
-\textbf{Safety Abstraktion von M}
-\includegraphics[width=0.7\textwidth]{images/fsm-example01_abs_min}
-\end{column}%
+  \begin{itemize}
+  \item[]<2-> \textcolor{blue}{\underline{\textcolor{black}{Wie in $H$-Methode}}}
+  \item[]<3-> \textcolor{red}{\underline{\textcolor{black}{Weniger Zustände unterscheidbar}}}
+\end{itemize}
+  \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Safety-H Methode}
+\begin{itemize}
+  \item Verallgemeinerung der $H$-Methode
+  \item Je weniger Zustände die Abstraktionsmaschine hat, desto weniger Testfälle werden erzeugt
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithmus für safety-H Methode (1)}
+Input: vollständige, minimale Referenz-DFSM $Ref_min$ und dazugehörige minimierte Abstraktions-DFSM\\
+Output: safety-Testsuite
+\begin{enumerate}
+  \item Füge $V.\bigcup\limits_{i=1}^{m-n+1}.\Sigma_I^i$ der Testsuite hinzu
+  \item Generiere Menge $A$, $B$ und $C$ aus der vollständigen, minimalen Referenz-DFSM
+  \item Generiere $(\alpha, \beta)$-Liste aus $A$
+  \item Iteriere über Liste:
+  \begin{itemize}
+    \item Berechne Zustand $q = \delta(q_0,\alpha)$ und $q'=\delta(q_0,\beta)$ in der \textbf{Referenzmaschine}
+    \item Falls $q = q'$: Wähle $\omega$ und füge $\alpha.\omega$ sowie $\beta.\omega$ der Testsuite hinzu
+  \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithmus für safety-H Methode (1)}
+\begin{enumerate}
+  \setcounter{enumi}{4}
+  \item Generiere neue $(\alpha, \beta)$-Liste aus $B$ und $C$
+  \item Iteriere über Liste:
+  \begin{itemize}
+    \item Berechne Zustand $q = \delta(q_0,\alpha)$ und $q'=\delta(q_0,\beta)$ in der \textbf{Abstraktionsmaschine}
+    \item Falls $q = q'$: Wähle $\omega$ und füge $\alpha.\omega$ sowie $\beta.\omega$ der Testsuite hinzu
+  \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithmus für safety-H Methode (2)}
+Input: vollständige, minimale Referenz-DFSM $Ref_{min}$ und dazugehörige minimierte Abstraktions-DFSM\\
+Output: safety-Testsuite
+\begin{enumerate}
+  \item Iteriere über $(\alpha,\beta)$-Liste und erzeuge $TS_1$ wie in (1)
+  \item Iteriere über $(\alpha,\beta)$-Liste rückwärts (zufällige Reihenfolge) und erzeuge $TS_2$
+  \item Starte ALgorithmus neu mit $TS_1 \cap TS_2 (\cap TS_i)$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Minimale Testsuite?}
+\begin{itemize}
+  \item Minimale Testsuite zu finden ist ein NP-vollständiges Problem
+  \item Reihenfolge der Bearbeitung beeinflusst das Ergebnis
+  \item Wegen veränderter Reihenfolge kann $TS_s$ größer werden als $TS$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithmus für safety-H Methode (3)}
+Input: vollständige, minimale Referenz-DFSM $Ref_{min}$ und dazugehörige minimierte Abstraktions-DFSM\\
+Output: safety-Testsuite
+\begin{enumerate}
+  \item Führe die $H$-Methode durch und merke, welcher Test durch welches $(\alpha,\beta)$-Paar zustandegekommen ist, und ob dieser wegen $A$ hinzugefügt wurde.
+  \item Iteriere über Tests
+  \begin{enumerate}
+    \item Iteriere über alle $(\alpha,\beta)$-Paar für diesen Test\\
+    \begin{itemize}
+      \item[] Falls $(\alpha,\beta)$-Paar wegen A erzeugt wurde: Nächstes Paar
+      \item[] Falls für alle gilt $\delta(q_0,\alpha) = \delta(q_0,\beta)$ \textbf{in der Abstraktionsmaschine}
+      \item[] $\Rightarrow$ Test kann entfernt werden
+
+    \end{itemize}
+  \end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Vergleich}
+\begin{table}[]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+m=n                    & H Methode & s-H Methode & Verbesserung \\\hline
+FSBRTS                 & 511       & 337         & 34 \%        \\
+Synthetic              & 61        & 31          & 49 \%        \\
+Garage Door Controller & 13        & 13          & 0 \%         \\
+\hline
+\end{tabular}
+\end{table}
 \end{frame}
 
 \begin{frame}
@@ -483,7 +617,15 @@ Sicherheitskritisch ist nur \textcolor{red}{a4}.
 \end{columns}
 \end{frame}
 
-\section{Conformance Testing}
+\section{Ausblick}
+\begin{frame}
+\frametitle{Ausblick}
+  \begin{itemize}
+    \item Implementationen verifizieren
+    \item Random-Generator für minimierbare DFSMs
+    \item Ausführliche Experimente über Reduktion von $TS_H$ zu $TS_{sH}$
+  \end{itemize}
+\end{frame}
 
 
 \end{document}
