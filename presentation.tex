@@ -250,6 +250,53 @@
 \end{columns}
 \end{frame}
 
+\begin{frame}
+  \frametitle{$H$-Methode - Optimierung}
+    Wahl von $\omega$ vom aktuellen Testbaum abhängig machen.
+  
+  \begin{columns}[T] % align columns
+    \begin{column}{.3\textwidth}
+        \pause
+	    \begin{itemize}
+		  \item Ideal: Finde $\omega$ im Testbaum
+		  \item Sonst: Erweitere bestehenden Test
+		  \item Wenn nicht anders möglich: Neuer Testfall 
+		\end{itemize}
+	    \begin{itemize}
+		  \item Betrachte $(c.a,d)$
+		  \item mögliches $\omega: e$
+	    \end{itemize}
+    \end{column}%
+
+    \begin{column}{.70\textwidth}
+        \only<2->{\includegraphics[width=\textwidth]{images/FSM_opt}}
+    \end{column}%
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{$H$-Methode - Optimierung}
+  \begin{columns}[T] % align columns
+
+\begin{column}{.4\textwidth}
+  \begin{itemize}
+	\item<2->Wahl $e$ für $\omega$ würde neuen Test erzeugen
+	\item<3->Versuche bestehenden Test zu erweitern
+	\item<4->$a.e$ statt $e$
+  \end{itemize}
+\end{column}%
+
+\begin{column}{.70\textwidth}
+Zu diesem Zeitpunkt sieht der Testbaum so aus:
+\only<1>{\includegraphics[height=0.6\textheight]{images/HTree_opt}}
+\only<2>{\includegraphics[height=0.6\textheight]{images/HTree_opt2}}
+\only<3->{\includegraphics[height=0.7\textheight]{images/HTree_opt3}}
+\end{column}%
+
+\end{columns}
+
+\end{frame}
 
 \section{Safety-Vollständigkeit}
 \begin{frame}

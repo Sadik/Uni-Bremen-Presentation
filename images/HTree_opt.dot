@@ -1,0 +1,19 @@
+digraph Tree {
+	rankdir=TB;
+	node [shape = circle];
+0 -> 1[label = "a" ];
+0 -> 9[label = "c" , color = blue, fontcolor = blue];
+9 -> 10[label = "a" , color = blue, fontcolor = blue];
+10 -> 11[label = "a" ];
+9 -> 12[label = "b" ];
+9 -> 13[label = "c" ];
+9 -> 14[label = "d" ];
+0 -> 17[label = "d" , color = blue, fontcolor = blue];
+17 -> 18[label = "a" ];
+17 -> 19[label = "b" ];
+17 -> 20[label = "c" ];
+17 -> 21[label = "d" ];
+0 -> 24[label = "a" ];
+0 -> 25[label = "e" ];
+0 -> 26[label = "f" ];
+}
