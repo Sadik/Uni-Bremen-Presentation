@@ -1,0 +1,25 @@
+\section{DFSM}
+\subsection{Definition}
+\begin{frame}
+  \frametitle{DFSM}
+
+  \begin{definition}[Finite State Machine\footnote{Endlicher Zustandsautomat}]
+    Eine Finite State Machine (FSM) ist ein 5-Tupel $$M=(Q,q_0,\Sigma_I,\Sigma_O,h)$$
+    $Q$: Zustandsraum\\
+    $q_0\in Q:$ Anfangszustand\\
+    $\Sigma_I$, $\Sigma_O$ : Ein-, Ausgabealphabet\\
+    $h \subseteq Q \times \Sigma_I \times \Sigma_O \times Q$ : Übergangsrelation 
+  \end{definition}
+  Deterministisch (DFSM): $(q,x,y_1,q_1),(q,x,y_2,q_2) \in h: (y_1 = y_2 \wedge q_1 = q_2)$
+\end{frame}
+
+\subsection{Eigenschaften}
+\begin{frame}
+\frametitle{FSM Eigenschaften}
+\begin{itemize}
+  \item Vollständig spezifiziert (\emph{completely specified})$$\forall q\in Q, x\in \Sigma_I : \exists y \in \Sigma_O, q'\in Q : (q,x,y,q')\in h$$
+  \item Die Sprache eines Zustandes $q \in Q$ ist eine Menge von Eingabe-/Aus\-gabefolgen $$L(q)= \{\overline{x}/\overline{y}\ | \exists q' \in Q : (q,\overline{x}, \overline{y}, q') \in h \}$$
+  \item I/O-äquivalent: $L(q_1) = L(q_2)$ bzw. $L(M_1) = L(M_2)$ $$q_1 \sim q_2, M_1 \sim M_2$$
+  \item Minimal: Wenn keine zwei Zustände einer DFSM zueinander äquivalent sind, ist die DFSM \emph{minimal}.
+\end{itemize}
+\end{frame}
