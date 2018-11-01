@@ -1,0 +1,6 @@
+digraph Tree {
+	rankdir=TB;
+	node [shape = circle fontsize=0 fixedsize=true];
+0 -> 1[label = "0" ];
+1 -> 2[label = "0" ];
+}

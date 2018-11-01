@@ -101,6 +101,7 @@
 
 \bibliography{literatur.bib}
 
+\usepackage{subcaption}
 \usepackage[ngerman]{babel}
 \addto{\captionsngerman}{%
   \renewcommand*{\contentsname}{Inhalt}
@@ -109,6 +110,37 @@
   \renewcommand*{\figurename}{Abb.}
   \renewcommand*{\tablename}{Tab.}
 }
+
+\newcommand{\pref}{\text{\rm Pref}}
+\newcommand{\successor}{\text{\rm Succ}}
+\newcommand{\after}{\text{\rm -\underline{after}-}}
+\newcommand{\ii}[1]{\underline{#1}}
+\newcommand{\fun}{\rightarrow}
+\newcommand{\dist}{\text{\rm Dist}}
+\newcommand{\equivs}{\text{\bf equiv}}
+\newcommand{\ol}{\overline}
+\newcommand{\pesnot}[2]{\mathrel{\widesimsnot{#2}{#1}}}
+\newcommand{\pe}{\sim_s}
+\newcommand{\pes}[2]{\mathrel{\widesims{#2}{#1}}}
+\newcommand{\sims}[1]{\stackrel{#1}{\sim}}
+\newcommand{\id}{\mathbf{id}}
+\newcommand{\ps}{\le_s}
+\newcommand{\pss}[1]{\stackrel{#1}{\ps}}
+\newcommand{\primem}{\mathbf{prime}}
+\newcommand{\TS}{{\text{TS}}}
+\newcommand{\ist}{\mbox{{\tt true}}}
+\newcommand{\isf}{\mbox{{\tt false}}}
+\newcommand{\bzgl}{bzgl.\@\xspace}
+\newcommand{\bzw}{bzw.\@\xspace}
+\newcommand{\ca}{ca.\@\xspace}
+\newcommand{\dah}{d.\thinspace{}h.\@\xspace}
+\newcommand{\Dah}{D.\thinspace{}h.\@\xspace}
+\newcommand{\ds}{d.\thinspace{}sind\@\xspace}
+\newcommand{\evtl}{evtl.\@\xspace}
+\newcommand{\ia}{i.\thinspace{}Allg.\@\xspace}
+\newcommand{\sa}{s.\ auch\@\xspace}
+\newcommand{\su}{s.\ unten\@\xspace}
+\usepackage[ruled]{algorithm2e}
 
 \setbeamertemplate{section page}
 {

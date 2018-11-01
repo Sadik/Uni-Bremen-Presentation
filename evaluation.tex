@@ -1,117 +1,17 @@
 \section{Evaluation}
+
 \begin{frame}
-    \frametitle{Vergleich}
-    \begin{table}[]
+  \frametitle{Fasten-Seat-Belt}
+  \begin{table}[]
+    \caption{Ergebnisse für die \glqq Fasten-Seat-Belt\grqq-DFSM.}
+    \label{tab:fsbrtsx}
     \centering
-    \begin{tabular}{|l|l|l|l|}
+    \begin{tabular}{|ccccc|}
     \hline
-    m=n                    & H Methode & s-H Methode & Verbesserung \\\hline
-    FSBRTS                 & 511       & 337         & 34 \%        \\
-    Synthetic              & 61        & 31          & 49 \%        \\
-    Garage Door Controller & 13        & 13          & 0 \%         \\
-    \hline
+          & \#Testfälle & \#Testschritte & ms & $\text{RED}_H$\\ \hline\hline
+        $\text{s-H}_1$ & 337         & 1487    &    23   &  31\% \\ \hline
+    $\text{s-H}_2$ & 423         & 2835    &    285  & 34\%  \\ \hline
+    $\text{s-H}_3$ & 399         & 2558    &    372   &  36\% \\ \hline
     \end{tabular}
-    \end{table}
-    \end{frame}
-    
-    \begin{frame}
-    \frametitle{Beispiel: Garage Door Controller}
-    Fernbedienung mit einer Taste steuert Garagentür
-    Garagentür kann:
-    \begin{itemize}
-        \item herunterfahren
-        \item hochfahren
-        \item stoppen
-        \item Richtung wechseln
-        \item Lichtschranke aktivieren und stoppen
-    \end{itemize}
-    
-    \end{frame}
-    \begin{frame}
-    \frametitle{Beispiel: Garage Door Controller}
-    \centering
-    \includegraphics[width=1.15\textwidth]{images/gdc}
-    
-    \end{frame}
-    
-    
-    \begin{frame}
-    \frametitle{Beispiel: Garage Door Controller}
-    \begin{columns}[T] % align columns
-    \begin{column}{.55\textwidth}
-    
-    \includegraphics[width=\textwidth]{images/gdc_min}
-    \end{column}%
-    \hfill%
-    \begin{column}{.55\textwidth}
-    Eingabe:
-    \begin{itemize}
-      \item e1: Fernbedienung gedrückt
-      \item e2: Sensor "Tür ist unten"
-      \item e3: Sensor "Tür ist oben"
-      \item e4: Sensor "Lichtschrank aktiviert"
-    \end{itemize}
-    Ausgabe:
-    \begin{itemize}
-      \item a1: "Tür fährt herunter"
-      \item a2: "Tür fährt hoch"
-      \item a3: "Stop"
-      \item a4: "Richtungswechsel unten $\rightarrow$ oben"
-    \end{itemize}
-    \end{column}%
-    \end{columns}
-    \end{frame}
-    
-    \begin{frame}
-    \frametitle{Beispiel: Garage Door Controller}
-    \begin{columns}[T] % align columns
-    \begin{column}{.55\textwidth}
-    
-    \includegraphics[width=\textwidth]{images/gdc_min_colored}
-    \end{column}%
-    \hfill%
-    \begin{column}{.55\textwidth}
-    Eingabe:
-    \begin{itemize}
-      \item e1: Fernbedienung gedrückt
-      \item e2: Sensor "Tür ist unten"
-      \item e3: Sensor "Tür ist oben"
-      \item e4: Sensor "Lichtschrank aktiviert"
-    \end{itemize}
-    Ausgabe:
-    \begin{itemize}
-      \item a1: "Tür fährt herunter"
-      \item a2: "Tür fährt hoch"
-      \item a3: "Stop"
-      \item a4: "Richtungswechsel unten $\rightarrow$ oben"
-    \end{itemize}
-    Sicherheitskritisch ist nur \textcolor{red}{a4}.
-    \end{column}%
-    \end{columns}
-    \end{frame}
-    
-    \begin{frame}
-    \frametitle{Beispiel: Garage Door Controller}
-    \begin{columns}[T] % align columns
-    \begin{column}{.53\textwidth}
-    
-    \includegraphics[width=\textwidth]{images/gdc_abs_min_colored}
-    \end{column}%
-    \hfill%
-    \begin{column}{.55\textwidth}
-    Eingabe:
-    \begin{itemize}
-      \item e1: Fernbedienung gedrückt
-      \item e2: Sensor "Tür ist unten"
-      \item e3: Sensor "Tür ist oben"
-      \item e4: Sensor "Lichtschrank aktiviert"
-    \end{itemize}
-    Ausgabe:
-    \begin{itemize}
-      \item a4: "Richtungswechsel unten $\rightarrow$ oben"
-      \item Y: Sonstige
-    \end{itemize}
-    Sicherheitskritisch ist nur \textcolor{red}{a4}.
-    \end{column}%
-    \end{columns}
-    \end{frame}
+\end{table}
+\end{frame} 
