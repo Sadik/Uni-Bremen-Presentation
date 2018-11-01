@@ -92,12 +92,14 @@
 %\AtBeginSection[]
 %{
 %  \begin{frame}
-%    \frametitle{Überblick}
 %    \tableofcontents[currentsection]
 %  \end{frame}
 %}
 
 % Hier beginnt der redaktionelle Inhalt
+\usepackage[style=alphabetic]{biblatex}
+
+\bibliography{literatur.bib}
 
 \usepackage[ngerman]{babel}
 \addto{\captionsngerman}{%
@@ -123,8 +125,7 @@
   \titlepage
 \end{frame}
 
-\section[Überblick]{Überblick}
-\begin{frame}<beamer>
+\begin{frame}
   \tableofcontents
 \end{frame}
 

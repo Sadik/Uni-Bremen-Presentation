@@ -11,13 +11,13 @@
 
 \begin{frame}
   \frametitle{$H$-Methode}
-  DFSM sei vollständig und minimal
+  Gegeben seien eine vollständige, minimale DFSM mit einer Zustandsüberdeckung $V$ und $n$ Zuständen und~ein~Sicherheitsparameter~$m$ mit $m \geq n$.
   \begin{itemize}
     \item $A=V\times V$
   	\item $B=V\times (V.\bigcup\limits_{i=1}^{m-n+1}.\Sigma_I^i)$
-  	\item $C=\{(\alpha,\beta)|\alpha,\beta\in V.\bigcup\limits_{i=1}^{m-n+1}.\Sigma_I^i, \alpha \in \text{Pref}(\beta)\}$
+  	\item $C=\{(\alpha,\beta)~|~\alpha,\beta\in V.\bigcup\limits_{i=1}^{m-n+1}.\Sigma_I^i, \alpha \in \text{Pref}(\beta)\}$
   \end{itemize}
-  Für alle Paare $(\alpha, \beta) \in A\cup B \cup C$, falls $\delta(q_0,\alpha) \not \sim \delta(q_0,\beta)$, dann enthält die Test Suite $\alpha.\omega,\beta.\omega$. $\omega$ ist die \emph{distinguishing trace} für $\delta(\alpha)$ und $\delta(\beta)$.
+  Für alle Paare $(\alpha, \beta) \in A\cup B \cup C$, falls $\delta(q_0,\alpha) \not \sim \delta(q_0,\beta)$, dann enthält die Test Suite $\alpha.\gamma,\beta.\gamma$. $\gamma$ ist die \emph{distinguishing trace} für $\delta(\alpha)$ und $\delta(\beta)$.
 \end{frame}
 
 \begin{frame}
@@ -52,7 +52,7 @@
 \only<11>{\includegraphics[height=0.6\textheight]{images/HTree06_c}}%
 \only<12>{\includegraphics[height=0.6\textheight]{images/HTree06}}%
 \only<13>{\includegraphics[height=0.6\textheight]{images/HTree07_c}}%
-\only<14>{\includegraphics[height=0.6\textheight]{images/HTree07}}%
+%\only<14>{\includegraphics[height=0.6\textheight]{images/HTree07}}%
 \end{column}%
 
 \end{columns}
@@ -63,9 +63,9 @@
 \begin{columns}[T] % align columns
 
 \begin{column}{.7\textwidth}
-\begin{itemize}[<+->]
-    \item $\W$-Methode: 8 Testfälle, 24 Testschritte
-    \item $\W_p$-Methode: 7 Testfälle, 21 Testschritte
+\begin{itemize}
+    \item $W$-Methode: 8 Testfälle, 24 Testschritte
+    \item $W_p$-Methode: 7 Testfälle, 21 Testschritte
     \item $H$-Methode: 5 Testfälle, 15 Testschritte
 \end{itemize}
 \end{column}%
@@ -78,54 +78,55 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}
-\frametitle{$H$-Methode - Optimierung}
-Wahl von $\omega$ vom aktuellen Testbaum abhängig machen.
+%
+%\begin{frame}
+%\frametitle{$H$-Methode - Optimierung}
+%Wahl von $\omega$ vom aktuellen Testbaum abhängig machen.
 
-\begin{itemize}
-      \item<2-> Ideal: Für $(\alpha, \beta$) finde $\omega$, sodass $\alpha.\omega$ und $\beta.\omega$ im Testbaum
-      \item<3-> Sonst: Erweitere bestehenden Test
-      \item<4-> Wenn nicht anders möglich: Neuer Testfall 
-    \end{itemize}
-\end{frame}
+%\begin{itemize}
+%      \item<2-> Ideal: Für $(\alpha, \beta$) finde $\omega$, sodass $\alpha.\omega$ und $\beta.\omega$ im Testbaum
+%      \item<3-> Sonst: Erweitere bestehenden Test
+%      \item<4-> Wenn nicht anders möglich: Neuer Testfall 
+%    \end{itemize}
+%\end{frame}
 
-\begin{frame}
-  \frametitle{$H$-Methode - Optimierung}
+%\begin{frame}
+%  \frametitle{$H$-Methode - Optimierung}
 
-  \begin{columns}[T] % align columns
-    \begin{column}{.3\textwidth}
-	    \begin{itemize}
-		  \item Betrachte $(c.a,d)$
-		  \item mögliches $\omega: e$
-	    \end{itemize}
-    \end{column}%
+%  \begin{columns}[T] % align columns
+%    \begin{column}{.3\textwidth}
+%	    \begin{itemize}
+%		  \item Betrachte $(c.a,d)$
+%		  \item mögliches $\omega: e$
+%	    \end{itemize}
+%    \end{column}%
 
-    \begin{column}{.70\textwidth}
-        \only<1->{\includegraphics[width=\textwidth]{images/FSM_opt}}
-    \end{column}%
-  \end{columns}
-\end{frame}
+%    \begin{column}{.70\textwidth}
+%        \only<1->{\includegraphics[width=\textwidth]{images/FSM_opt}}
+%    \end{column}%
+%  \end{columns}
+%\end{frame}
 
 
-\begin{frame}
-  \frametitle{$H$-Methode - Optimierung}
-  \begin{columns}[T] % align columns
+%\begin{frame}
+ % \frametitle{$H$-Methode - Optimierung}
+ % \begin{columns}[T] % align columns
 
-\begin{column}{.4\textwidth}
-  \begin{itemize}
-	\item<2->Wahl $e$ für $\omega$ würde neuen Test erzeugen
-	\item<3->Versuche bestehenden Test zu erweitern
-	\item<4->$a.e$ statt $e$
-  \end{itemize}
-\end{column}%
+%\begin{column}{.4\textwidth}
+%  \begin{itemize}
+%	\item<2->Wahl $e$ für $\omega$ würde neuen Test erzeugen
+%	\item<3->Versuche bestehenden Test zu erweitern
+%	\item<4->$a.e$ statt $e$
+%  \end{itemize}
+%\end{column}%
 
-\begin{column}{.70\textwidth}
-Zu diesem Zeitpunkt sieht der Testbaum so aus:
-\only<1>{\includegraphics[height=0.6\textheight]{images/HTree_opt}}
-\only<2-3>{\includegraphics[height=0.6\textheight]{images/HTree_opt2}}
-\only<4->{\includegraphics[height=0.7\textheight]{images/HTree_opt3}}
-\end{column}%
+%\begin{column}{.70\textwidth}
+%Zu diesem Zeitpunkt sieht der Testbaum so aus:
+%\only<1>{\includegraphics[height=0.6\textheight]{images/HTree_opt}}
+%\only<2-3>{\includegraphics[height=0.6\textheight]{images/HTree_opt2}}
+%\only<4->{\includegraphics[height=0.7\textheight]{images/HTree_opt3}}
+%\end{column}%
 
-\end{columns}
+%\end{columns}
 
-\end{frame}
+%\end{frame}

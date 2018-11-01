@@ -1,39 +1,5 @@
 \section{Algorithmen}
-\begin{frame}
-    \frametitle{Safety-H Methode}
-    $(\alpha, \beta)$-Liste stammt aus den gleichen Mengen wie bei der $H$-Methode
-    \begin{itemize}
-        \item $A=V\times V$
-        \item $B=V\times (V.\bigcup\limits_{i=1}^{m-n+1}.\Sigma_I^i)$
-        \item $C=\{(\alpha,\beta)|\alpha,\beta\in V.\bigcup\limits_{i=1}^{m-n+1}.\Sigma_I^i, \alpha \in \text{Pref}(\beta)\}$
-      \end{itemize}
-    
-    \begin{columns}[T] % align columns
-    \begin{column}{.50\textwidth}
-    \pause
-    \begin{itemize}
-      \item<2-> $(\alpha, \beta) \in A, \delta(q_0,\alpha) \not \sim \delta(q_0, \beta)$
-      \item<3-> $(\alpha, \beta) \in B, \delta(q_0,\alpha) \not \sim_s \delta(q_0, \beta)$
-      \item<3-> $(\alpha, \beta) \in C, \delta(q_0,\alpha) \not \sim_s \delta(q_0, \beta)$
-    \end{itemize}
-      \end{column}%
-      \begin{column}{.60\textwidth}
-    
-      \begin{itemize}
-      \item[]<2-> \textcolor{blue}{\underline{\textcolor{black}{Wie in $H$-Methode}}}
-      \item[]<3-> \textcolor{red}{\underline{\textcolor{black}{Weniger Zustände unterscheidbar}}}
-    \end{itemize}
-      \end{column}
-    \end{columns}
-    \end{frame}
-    
-    \begin{frame}
-    \frametitle{Safety-H Methode}
-    \begin{itemize}
-      \item Verallgemeinerung der $H$-Methode
-      \item Je weniger Zustände die Abstraktionsmaschine hat, desto weniger Testfälle werden erzeugt
-    \end{itemize}
-    \end{frame}
+
     
     \begin{frame}
     \frametitle{Algorithmus für safety-H Methode (1)}
