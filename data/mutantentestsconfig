@@ -1,0 +1,4 @@
+konfig    inputs    outputs    refmin    absmin
+1    2    3    20    4
+2    10     10    100    10
+3    5    5    100    80
