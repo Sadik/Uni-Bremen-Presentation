@@ -83,7 +83,7 @@
 \title{Eigenschaftsorientiertes Testen sicherheitskritischer Systeme}
 \author{Sadik Özoguz}
 \institute{Universit{\"a}t Bremen}
-\date[26.10.2018]{26. Oktober 2018}
+\date[29.11.2018]{29. November 2018}
 
 \newcommand{\W}{\mathcal{W}}
 \newcommand{\F}{\mathcal{F}}
@@ -143,6 +143,14 @@
 \newcommand{\ia}{i.\thinspace{}Allg.\@\xspace}
 \newcommand{\sa}{s.\ auch\@\xspace}
 \newcommand{\su}{s.\ unten\@\xspace}
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
 \usepackage[ruled]{algorithm2e}
 
 \setbeamertemplate{section page}
@@ -164,6 +172,7 @@
   \tableofcontents
 \end{frame}
 
+
 \include{einleitung}
 \include{dfsm}
 \include{hmethod}
@@ -171,7 +180,7 @@
 \include{algorithmen}
 \include{evaluation}
 \include{fazit}
-
+\include{anhang}
 \end{document}
 
 

@@ -9,7 +9,7 @@
     $\Sigma_I$, $\Sigma_O$ : Ein-, Ausgabealphabet\\
     $h \subseteq Q \times \Sigma_I \times \Sigma_O \times Q$ : Übergangsrelation 
   \end{definition}
-  Deterministisch (DFSM): $(q,x,y_1,q_1),(q,x,y_2,q_2) \in h: (y_1 = y_2 \wedge q_1 = q_2)$
+  Deterministisch (DFSM): $\forall q \in Q, x \in \Sigma_I: h(q,x,y_1,q_1),h(q,x,y_2,q_2) \Rightarrow (y_1, q_1) = (y_2, q_2)$
 \end{frame}
 
 \begin{frame}
